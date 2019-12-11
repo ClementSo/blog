@@ -27,21 +27,20 @@ function articleCreate() {
 function articleStore() {
 
   if (isset($_POST["title"]) && isset($_POST["content"]) && isset($_POST["slug"])) {
-
     if (empty($_POST["title"])) {
-      $_SESSION["error"]["title"] = "mettez un title";
+      $_SESSION["errors"]["title"] = "mettez un title";
     }
 
     if (empty($_POST["content"])) {
-      $_SESSION["error"]["content"] = "mettez un content";
+      $_SESSION["errors"]["content"] = "mettez un content";
     }
 
     if (empty($_POST["slug"])) {
-      $_SESSION["error"]["slug"] = "mettez un slug";
+      $_SESSION["errors"]["slug"] = "mettez un slug";
     }
 
-    if (isset($_SESSION["error"])) {
-      header("Location: create");
+    if (isset($_SESSION["errors"])) {
+      header("Location: /articles/create");
     }
 
     else {
